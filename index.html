@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouk.ai | Knowledge Vault + AI Brain</title>
+    <meta
+      name="description"
+      content="Mouk.ai is a personal knowledge vault, AI brain prototype, and chaos philosophy archive for leadership, technology, human behavior, and useful scars."
+    />
+    <meta name="theme-color" content="#070908" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="memory-canvas" aria-hidden="true"></canvas>
+
+    <main class="shell" id="top">
+      <aside class="rail" aria-label="Mouk.ai navigation">
+        <a class="brand" href="#top">
+          <span class="brand-mark">M</span>
+          <span>
+            <strong>Mouk.ai</strong>
+            <small>Pro vault build</small>
+          </span>
+        </a>
+
+        <nav class="rail-nav" aria-label="Primary">
+          <button class="rail-button active" type="button" data-view="vault">
+            <span>01</span>
+            Vault
+          </button>
+          <button class="rail-button" type="button" data-view="brain">
+            <span>02</span>
+            Brain
+          </button>
+          <button class="rail-button" type="button" data-view="rewrite">
+            <span>03</span>
+            Rewrite
+          </button>
+          <button class="rail-button" type="button" data-view="chaos">
+            <span>04</span>
+            Chaos
+          </button>
+        </nav>
+
+        <section class="system-card" aria-label="System status">
+          <p><span class="prompt">$</span> mouk.sync --mode=pro</p>
+          <dl>
+            <div>
+              <dt>entries</dt>
+              <dd id="entry-total">0</dd>
+            </div>
+            <div>
+              <dt>signals</dt>
+              <dd>live</dd>
+            </div>
+            <div>
+              <dt>tone</dt>
+              <dd>candid</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+
+      <section class="stage">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Personal operating system</p>
+            <h1>Mouk.ai</h1>
+          </div>
+          <div class="header-actions" aria-label="Quick actions">
+            <button class="ghost-button" type="button" id="theme-button">Focus</button>
+            <a class="primary-link" href="#brain-input">Ask Mouk</a>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="signal">
+              <span class="signal-light"></span>
+              <span id="view-label">Knowledge Vault</span>
+            </div>
+            <h2 id="hero-title">A living archive for lessons that aged into leverage.</h2>
+            <p id="hero-summary">
+              Leadership thoughts, operational scars, human behavior patterns, and random knowledge that became useful after the damage was already educational.
+            </p>
+          </div>
+
+          <div class="memory-panel" aria-label="Featured Moukism">
+            <p class="panel-code">featured_moukism.json</p>
+            <blockquote id="hero-quote">
+              “The moment you fully understand the problem, it usually stops being scary.”
+            </blockquote>
+            <p id="hero-caption">incident room edition</p>
+          </div>
+        </section>
+
+        <section class="view active" data-panel="vault">
+          <div class="toolbar">
+            <label class="search-box">
+              <span>Search vault</span>
+              <input id="search-input" type="search" placeholder="trust, incident, candor, support..." />
+            </label>
+            <div class="filter-row" id="category-filters" aria-label="Vault categories"></div>
+          </div>
+
+          <div class="vault-layout">
+            <section class="entry-stream" aria-label="Knowledge entries">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Archive feed</p>
+                  <h3 id="active-category">All entries</h3>
+                </div>
+                <span class="counter" id="visible-count">0 shown</span>
+              </div>
+              <div class="entries" id="entries"></div>
+            </section>
+
+            <aside class="scratchpad" aria-label="Personal scratchpad">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Capture</p>
+                  <h3>New Scar</h3>
+                </div>
+                <span class="counter">local</span>
+              </div>
+              <form id="note-form" class="note-form">
+                <input id="note-title" type="text" placeholder="Title this lesson" />
+                <textarea id="note-body" rows="5" placeholder="What happened, what it taught you, and what it changed."></textarea>
+                <button class="primary-button" type="submit">Add to session</button>
+              </form>
+              <div class="saved-notes" id="saved-notes"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" data-panel="brain">
+          <div class="brain-grid">
+            <section class="chat-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">AI Mouk Brain</p>
+                  <h3>Ask Mouk Anything</h3>
+                </div>
+                <span class="counter">style demo</span>
+              </div>
+              <div class="chat-window" id="chat-window" aria-live="polite">
+                <article class="message bot">
+                  <span>Mouk</span>
+                  <p>Give me the messy version first. Clean versions are where the useful constraints go to hide.</p>
+                </article>
+              </div>
+              <form class="chat-form" id="chat-form">
+                <label class="sr-only" for="brain-input">Ask Mouk</label>
+                <textarea id="brain-input" rows="4" placeholder="Mouk, how do I handle a high performer with low emotional trust?"></textarea>
+                <button class="primary-button" type="submit">Ask</button>
+              </form>
+            </section>
+
+            <aside class="advisor-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Decision lens</p>
+                  <h3>Incident Philosophy</h3>
+                </div>
+              </div>
+              <div class="lens-list">
+                <button type="button" data-prompt="incident">Incident room</button>
+                <button type="button" data-prompt="trust">Low trust</button>
+                <button type="button" data-prompt="team">Team dynamics</button>
+                <button type="button" data-prompt="manager">Manager moment</button>
+              </div>
+              <p class="advisor-output" id="advisor-output">
+                Pick a lens to generate the first useful question.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" data-panel="rewrite">
+          <div class="rewrite-grid">
+            <section class="rewrite-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Mouk style</p>
+                  <h3>Rewrite Studio</h3>
+                </div>
+                <span class="counter">candid, useful</span>
+              </div>
+              <textarea id="rewrite-input" rows="9" placeholder="Paste a message that needs to sound clearer, calmer, and more like you."></textarea>
+              <div class="tone-row">
+                <button class="tone-button active" type="button" data-tone="direct">Direct</button>
+                <button class="tone-button" type="button" data-tone="coach">Coach</button>
+                <button class="tone-button" type="button" data-tone="exec">Exec</button>
+              </div>
+              <button class="primary-button" type="button" id="rewrite-submit">Rewrite</button>
+            </section>
+            <section class="rewrite-output">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Output</p>
+                  <h3>Clean Signal</h3>
+                </div>
+              </div>
+              <p id="rewrite-output">
+                The rewrite will show up here. It will keep the point sharp without making the room flinch unnecessarily.
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" data-panel="chaos">
+          <div class="chaos-header">
+            <div>
+              <p class="eyebrow">Useful lessons from useless experiences</p>
+              <h3>Chaos Philosophy / Meme Wisdom</h3>
+            </div>
+            <button class="ghost-button" type="button" id="wisdom-button">Random wisdom</button>
+          </div>
+          <p class="wisdom-output" id="wisdom-output">
+            Every process is a theory. Incidents are peer review.
+          </p>
+          <div class="chaos-grid" id="chaos-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
