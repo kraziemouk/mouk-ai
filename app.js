@@ -381,6 +381,7 @@ function addMessage(role, text) {
   node.innerHTML = `<span>${role === "user" ? "You" : "Mouk"}</span><p>${formatMessage(text)}</p>`;
   chatWindow.appendChild(node);
   chatWindow.scrollTop = chatWindow.scrollHeight;
+  return node;
 }
 
 function escapeHTML(text) {
@@ -478,6 +479,31 @@ function answerLikeMouk(question) {
   return parts.join("\n\n");
 }
 
+async function askMouk(question) {
+  const pending = addMessage("bot", "Thinking through the Mouk lens...");
+
+  try {
+    const response = await fetch("/api/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ question }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Ask Mouk API failed.");
+    }
+
+    pending.querySelector("p").innerHTML = formatMessage(data.answer || answerLikeMouk(question));
+  } catch (error) {
+    const fallback = `${answerLikeMouk(question)}\n\nLocal fallback note: the real AI endpoint is not available yet. On Vercel, add OPENAI_API_KEY and redeploy.`;
+    pending.querySelector("p").innerHTML = formatMessage(fallback);
+  }
+}
+
 function rewriteMessage(text) {
   const raw = text.trim();
   if (!raw) {
@@ -537,7 +563,7 @@ chatForm.addEventListener("submit", (event) => {
   const question = brainInput.value.trim();
   if (!question) return;
   addMessage("user", question);
-  addMessage("bot", answerLikeMouk(question));
+  askMouk(question);
   brainInput.value = "";
 });
 
