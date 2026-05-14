@@ -499,7 +499,7 @@ async function askMouk(question) {
 
     pending.querySelector("p").innerHTML = formatMessage(data.answer || answerLikeMouk(question));
   } catch (error) {
-    const fallback = `${answerLikeMouk(question)}\n\nLocal fallback note: the real AI endpoint is not available yet. On Vercel, add OPENAI_API_KEY and redeploy.`;
+    const fallback = `${answerLikeMouk(question)}\n\nLocal fallback note: the real AI endpoint is not available yet. On Vercel, add OPENAI_API_KEY and redeploy.\n\nError detail: ${error.message}`;
     pending.querySelector("p").innerHTML = formatMessage(fallback);
   }
 }
