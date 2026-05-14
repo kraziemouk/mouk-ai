@@ -312,6 +312,8 @@ const savedNotes = document.querySelector("#saved-notes");
 const chatForm = document.querySelector("#chat-form");
 const brainInput = document.querySelector("#brain-input");
 const chatWindow = document.querySelector("#chat-window");
+const askShortcut = document.querySelector("#ask-mouk-shortcut");
+const askSubmit = document.querySelector("#ask-submit");
 const rewriteInput = document.querySelector("#rewrite-input");
 const rewriteSubmit = document.querySelector("#rewrite-submit");
 const rewriteOutput = document.querySelector("#rewrite-output");
@@ -535,6 +537,14 @@ railButtons.forEach((button) => {
   button.addEventListener("click", () => setView(button.dataset.view));
 });
 
+askShortcut.addEventListener("click", () => {
+  setView("brain");
+  window.requestAnimationFrame(() => {
+    brainInput.focus();
+    brainInput.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
+
 categoryFilters.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-category]");
   if (!button) return;
@@ -558,13 +568,25 @@ noteForm.addEventListener("submit", (event) => {
   noteForm.reset();
 });
 
-chatForm.addEventListener("submit", (event) => {
+chatForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const question = brainInput.value.trim();
-  if (!question) return;
+  if (!question) {
+    brainInput.focus();
+    return;
+  }
+
+  askSubmit.disabled = true;
+  askSubmit.textContent = "Asking...";
   addMessage("user", question);
-  askMouk(question);
   brainInput.value = "";
+
+  try {
+    await askMouk(question);
+  } finally {
+    askSubmit.disabled = false;
+    askSubmit.textContent = "Ask";
+  }
 });
 
 document.querySelectorAll("[data-prompt]").forEach((button) => {
