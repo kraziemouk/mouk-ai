@@ -1,105 +1,175 @@
 const entries = [
   {
     category: "Leadership",
-    type: "Field note",
-    title: "Trust is operational infrastructure",
-    body: "A team can borrow process for a while, but it cannot borrow trust. Low-trust systems turn every normal decision into a governance event.",
-    tags: ["trust", "teams", "systems"],
+    type: "Decision lens",
+    title: "People impact inside systems thinking",
+    body: "You evaluate decisions through business impact, human impact, operational sustainability, scalability, and blast radius. Clarity over control, context over micromanagement.",
+    tags: ["decisions", "people", "systems"],
   },
   {
     category: "Leadership",
-    type: "Moukism",
-    title: "Clarity lowers the temperature",
-    body: "Most rooms do not need more confidence. They need the problem named so precisely that everyone stops shadowboxing.",
-    tags: ["clarity", "conflict", "leadership"],
+    type: "Coaching",
+    title: "Scale through ownership",
+    body: "You coach through context, questioning, exposure, and ownership. Success looks like reduced dependency, cleaner handoffs, fewer escalations, and a healthier operational rhythm.",
+    tags: ["coaching", "autonomy", "ownership"],
   },
   {
-    category: "Technology",
-    type: "System scar",
-    title: "Architecture is memory with consequences",
-    body: "Every system remembers the incentives that built it. The weirdest parts are usually fossils from a perfectly reasonable emergency.",
-    tags: ["architecture", "operations", "incentives"],
+    category: "Mouk Company",
+    type: "Operating thesis",
+    title: "Build people, trust, and pressure-proof systems",
+    body: "The Mouk Company thesis: build people, build trust, and build systems that survive pressure. Everything else scales from there.",
+    tags: ["doctrine", "trust", "systems"],
   },
   {
-    category: "Technology",
-    type: "Ops truth",
-    title: "Dashboards are not observability",
-    body: "A dashboard tells you what someone once thought would matter. Observability tells you what actually matters now.",
-    tags: ["observability", "incidents", "signal"],
+    category: "Mouk Company",
+    type: "Leadership doctrine",
+    title: "Scale humans, not dependency",
+    body: "Great leadership reduces fear and increases clarity. Strong leaders transfer context, build decision-making capability, and create environments where people can safely tell the truth.",
+    tags: ["leadership", "clarity", "scale"],
   },
   {
-    category: "Human Behavior",
-    type: "Pattern",
-    title: "People protect identity before logic",
-    body: "If a solution makes someone feel stupid, threatened, or erased, they will debate the facts long after the facts are settled.",
-    tags: ["behavior", "change", "psychology"],
+    category: "Development Archive",
+    type: "Core identity",
+    title: "Built through instability",
+    body: "Refugee camp beginnings, Laos, cultural translation, factory work, Air Force discipline, technical operations, and Netflix leadership shaped a leader built through instability and grounded through people.",
+    tags: ["origin", "identity", "resilience"],
   },
   {
-    category: "Human Behavior",
-    type: "Meeting note",
-    title: "Energy is a data source",
-    body: "Watch when the room gets quiet, defensive, or weirdly funny. The emotional weather usually points straight at the real system constraint.",
-    tags: ["meetings", "signal", "constraints"],
+    category: "Development Archive",
+    type: "Military influence",
+    title: "Your team needs to know you will show up",
+    body: "Air Force structure reinforced operational discipline, escalation clarity, ownership, accountability, and calm under pressure. Ambiguity kills execution.",
+    tags: ["air-force", "discipline", "pressure"],
   },
   {
-    category: "The Gift of Shit",
-    type: "Doctrine",
-    title: "Bad inputs can become useful signal",
-    body: "The gift is not the chaos itself. The gift is what the chaos reveals about assumptions, handoffs, incentives, and blind spots.",
-    tags: ["chaos", "learning", "handoffs"],
+    category: "Development Archive",
+    type: "Communication psychology",
+    title: "Tone determines escalation trajectory",
+    body: "Verbal Judo shaped the belief that communication is emotional regulation, trust management, conflict de escalation, and influence. Questions reduce resistance.",
+    tags: ["verbal-judo", "tone", "empathy"],
   },
   {
-    category: "The Gift of Shit",
-    type: "Incident",
-    title: "Pain is an expensive profiler",
-    body: "The outage tells you where the system is coupled. The argument tells you where the team is coupled.",
-    tags: ["incident", "coupling", "team"],
+    category: "Incident Management",
+    type: "Operating model",
+    title: "Command the signal",
+    body: "Your incident model favors clear IC ownership, role clarity, rapid triage, structured communication, escalation discipline, and follow the sun coordination.",
+    tags: ["incidents", "triage", "ownership"],
   },
   {
-    category: "Random Useless Knowledge",
-    type: "Oddly useful",
-    title: "Experts know which details are decoys",
-    body: "Useless facts become useful when they teach your brain what normal looks like in a domain you do not fully understand yet.",
-    tags: ["learning", "expertise", "pattern"],
+    category: "Incident Management",
+    type: "Postmortem",
+    title: "Recurring incidents are signal",
+    body: "You look for handoff failure, missing context, unclear ownership, weak safeguards, and humans compensating for broken systems. Blame is usually less useful than drift.",
+    tags: ["postmortem", "drift", "learning"],
   },
   {
-    category: "Random Useless Knowledge",
-    type: "Trivia with teeth",
-    title: "Most weird rules have a body count",
-    body: "Policies, warnings, and strange checklists often exist because someone learned the lesson loudly enough for everyone else.",
-    tags: ["policy", "history", "risk"],
+    category: "Incident Management",
+    type: "Support doctrine",
+    title: "Support is the nervous system",
+    body: "Support sees friction, customer pain, operational drift, and scaling issues first. Good support organizations become signal engines and early warning systems.",
+    tags: ["support", "signal", "customer-pain"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Trust",
+    title: "Cognitive trust is not emotional trust",
+    body: "You separate whether someone is competent from whether people feel safe working with them. Many leaders build one kind of trust and confuse it for both.",
+    tags: ["trust", "teams", "eq"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Burnout",
+    title: "The safety net problem",
+    body: "Burnout often means the system has turned one person into its safety net. If the system only works because one person sacrifices themselves, the system is broken.",
+    tags: ["burnout", "support", "boundaries"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Human dynamics",
+    title: "Reliable people get overloaded first",
+    body: "High performers absorb ambiguity, compensate for weak systems, protect teams silently, and take on emotional labor. Good leaders redistribute weight before collapse happens.",
+    tags: ["burnout", "high-performers", "load"],
+  },
+  {
+    category: "Communication",
+    type: "Voice",
+    title: "Direct, human, operationally grounded",
+    body: "Your voice favors short practical language, emotional realism, and clarity over corporate fluff. Common moves include 'keep me honest,' 'my read is,' and 'what is the actual ask?'",
+    tags: ["voice", "candor", "clarity"],
+  },
+  {
+    category: "Communication",
+    type: "Operating phrase",
+    title: "You can feel tension without creating tension",
+    body: "Operational leadership requires emotional control, calm communication, measured escalation, and clarity under pressure.",
+    tags: ["communication", "tension", "calm"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Hard lesson",
+    title: "Support becomes the dumping ground",
+    body: "Without boundaries, support absorbs unclear ownership, tribal knowledge, vendor ambiguity, and leadership misalignment until reaction mode becomes the operating model.",
+    tags: ["support", "ownership", "scaling"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Integration scar",
+    title: "Integrations fail culturally first",
+    body: "M&A, identity complexity, domain migrations, vendor ambiguity, and reorg uncertainty fail technically later. The cultural and ownership gaps usually start the clock.",
+    tags: ["m&a", "integration", "culture"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Scale scar",
+    title: "Fast growth creates invisible cracks",
+    body: "As organizations scale, ownership blurs, process drifts, communication fragments, and dependency chains grow. Without intentional structure, complexity compounds.",
+    tags: ["scale", "growth", "operational-debt"],
+  },
+  {
+    category: "Personal Context",
+    type: "Origin",
+    title: "Operator shaped by ambiguity",
+    body: "Refugee camp beginnings, factory work, Air Force discipline, technical operations, and Netflix leadership shaped resilience, humility, pragmatism, and empathy for frontline work.",
+    tags: ["background", "resilience", "operator"],
+  },
+  {
+    category: "Personal Context",
+    type: "Family",
+    title: "Grounded through people",
+    body: "Marriage deepened emotional openness, empathy, patience, vulnerability, and trust. Parenthood sharpened long-term thinking, purpose, patience, and legacy.",
+    tags: ["family", "legacy", "empathy"],
   },
   {
     category: "Moukisms",
     type: "Quote",
-    title: "Scary problems shrink under inspection",
-    body: "The moment you fully understand the problem, it usually stops being scary.",
-    tags: ["problem-solving", "fear", "clarity"],
+    title: "People over process",
+    body: "People over process, but process matters when people scale. Good process protects people.",
+    tags: ["process", "scale", "people"],
   },
   {
     category: "Moukisms",
     type: "Quote",
-    title: "Candor has an arrival cost",
-    body: "Every team says they want candor until candor arrives.",
-    tags: ["candor", "truth", "teams"],
+    title: "The gift of shit",
+    body: "Hard situations eventually become normalized experience. What once felt overwhelming becomes operational wisdom later.",
+    tags: ["wisdom", "failure", "growth"],
   },
 ];
 
 const views = {
   vault: {
     label: "Knowledge Vault",
-    title: "A living archive for lessons that aged into leverage.",
+    title: "The Mouk Company operating system for pressure, people, and scale.",
     summary:
-      "Leadership thoughts, operational scars, human behavior patterns, and random knowledge that became useful after the damage was already educational.",
-    quote: "The moment you fully understand the problem, it usually stops being scary.",
-    caption: "incident room edition",
+      "Leadership doctrine, incident command, support intelligence, trust patterns, operational scars, personal context, development archive, and Moukisms shaped by systems thinking and people impact.",
+    quote: "Build people. Build trust. Build systems that survive pressure.",
+    caption: "the Mouk Company thesis",
   },
   brain: {
     label: "AI Mouk Brain",
     title: "Ask the useful version of the question, not just the polite one.",
     summary:
       "A conversational workspace for leadership advice, incident philosophy, team dynamics, and practical wisdom in the Mouk voice.",
-    quote: "The move is not to sound smart. The move is to reduce the blast radius.",
+    quote: "Context scales better than control.",
     caption: "practical intelligence edition",
   },
   rewrite: {
@@ -107,7 +177,7 @@ const views = {
     title: "Turn fuzzy intent into clean signal.",
     summary:
       "Paste a message and convert it into something candid, calm, useful, and much less likely to create avoidable emotional shrapnel.",
-    quote: "A hard truth needs a soft landing.",
+    quote: "Say the true thing in a way the room can actually use.",
     caption: "communication edition",
   },
   chaos: {
@@ -115,34 +185,39 @@ const views = {
     title: "Useful lessons from useless experiences.",
     summary:
       "Humor, existential operational chaos, leadership memes, and uncomfortable truths for people who have seen one too many dashboards at midnight.",
-    quote: "Every team says they want candor until candor arrives.",
+    quote: "The gift of shit is when pain becomes pattern recognition.",
     caption: "meme wisdom edition",
   },
 };
 
 const chaosCards = [
-  ["Corporate Survival Guide", "Never confuse alignment with silence. Silence is just backlog with better manners."],
-  ["Why Teams Break", "Teams rarely break from one big truth. They break from tiny avoided truths collecting interest."],
-  ["Support PTSD", "There is no alert quite like the alert that sounds exactly like last quarter."],
-  ["Things Nobody Tells Managers", "You inherit every decision people were too tired, scared, or polite to make."],
-  ["Random Midnight Thoughts", "The system is always talking. Unfortunately, it often chooses interpretive dance."],
-  ["The Gift of Shit", "Some problems are just badly wrapped insight with a deadline and an audience."],
+  ["Corporate Survival Guide", "Do not make it a thing unless it becomes a thing. Some fires are just sparks with good branding."],
+  ["Why Teams Break", "Unclear ownership kills velocity faster than most technical problems."],
+  ["Support PTSD", "Support is the nervous system of the organization, which is a fancy way of saying it feels pain first."],
+  ["Things Nobody Tells Managers", "Reduced dependency on you is not loss of control. It is proof the system is maturing."],
+  ["Random Midnight Thoughts", "Every recurring incident is a system trying to tell you something."],
+  ["The Gift of Shit", "Pain creates pattern recognition. Annoying feature, excellent long-term architecture."],
 ];
 
 const wisdom = [
-  "Every process is a theory. Incidents are peer review.",
-  "A calm room is not always a healthy room. Sometimes it is just a very experienced room.",
-  "The fastest way to lower drama is to raise precision.",
-  "If nobody owns the awkward middle, the awkward middle owns the roadmap.",
-  "A leader's job is often translating vibes into constraints.",
-  "The best postmortem question is not who missed it. It is what made missing it normal.",
+  "Build people. Build trust. Build systems that survive pressure.",
+  "Built through instability. Strengthened through failure. Scaled through curiosity. Grounded through people.",
+  "If the system only works because one person sacrifices themselves, the system is broken.",
+  "Every recurring incident is a system trying to tell you something.",
+  "Support is the nervous system of the organization.",
+  "Do not improvise your whole career. Build structure around yourself.",
+  "Slow is smooth. Smooth becomes fast.",
+  "Escalation is communication, not failure.",
+  "Silence is operational data.",
+  "Tone determines escalation trajectory.",
+  "Confidence is built through surviving uncertainty.",
 ];
 
 const advisorPrompts = {
-  incident: "What changed, who noticed first, what did we assume, and where did the system make the wrong thing easy?",
-  trust: "Is this person creating results the team can build on, or results the team has to recover from?",
-  team: "What behavior keeps repeating, and what reward or fear makes that behavior rational?",
-  manager: "What truth needs to be said, and how can you say it without making identity the thing under attack?",
+  incident: "Who is the IC, what is the blast radius, what is confirmed versus assumed, who owns the next decision, and when is the next structured update?",
+  trust: "Are we dealing with cognitive trust, emotional trust, or both? What small interaction is teaching the team whether candor is safe?",
+  team: "What behavior keeps repeating, what boundary is unclear, and what reward or fear makes this behavior rational?",
+  manager: "What context is missing, what is the actual ask, and how do we create ownership without becoming the hero?",
 };
 
 let activeCategory = "All";
@@ -236,15 +311,30 @@ function addMessage(role, text) {
 function answerLikeMouk(question) {
   const lower = question.toLowerCase();
   if (lower.includes("high performer") || lower.includes("trust")) {
-    return "Separate performance from trust. Thank them for the output, then name the cost of how the output is created. High impact with low emotional trust is still operational risk.";
+    return "Separate cognitive trust from emotional trust. They may be reliable and still unsafe to work around. Acknowledge the output, then name the operating cost. High performance with low trust is still operational risk.";
   }
   if (lower.includes("incident") || lower.includes("outage")) {
-    return "Start with facts, timeline, blast radius, and decision points. Keep shame out of the room. Shame makes people optimize for looking clean instead of making the system smarter.";
+    return "Start with IC ownership, blast radius, confirmed facts, assumptions, customer impact, and next decision. Keep shame out of the room. The system is telling you something, so make the signal visible.";
+  }
+  if (lower.includes("escalation")) {
+    return "Escalation is communication, not failure. The question is whether risk is visible early enough, accountability is clear enough, and the person asking for help has enough context to move without drama.";
+  }
+  if (lower.includes("tone") || lower.includes("conflict") || lower.includes("communication")) {
+    return "Tone determines escalation trajectory. My move would be to listen first, identify the emotional driver, then use questions to lower resistance. Help me understand is often stronger than let me explain.";
   }
   if (lower.includes("team") || lower.includes("manager")) {
-    return "Look for the repeated behavior, then ask what the system is rewarding. Teams do not drift into dysfunction randomly. Something is making the current behavior rational.";
+    return "Look for the repeated behavior, then ask what the system is rewarding. Keep me honest, but most team issues have missing context, unclear ownership, or trust debt underneath them.";
   }
-  return "My first pass: make the invisible constraint visible. Then decide whether this is a people problem, a process problem, or a fear problem wearing a process hat.";
+  if (lower.includes("burnout") || lower.includes("support")) {
+    return "My read is that burnout is usually a boundary and ownership signal. Support is the nervous system of the organization, so if it is constantly in pain, the fix is not more appreciation. It is clearer intake, escalation, runbooks, and what support should not own.";
+  }
+  if (lower.includes("documentation") || lower.includes("docs")) {
+    return "Documentation is not bureaucracy. It is memory at scale, onboarding acceleration, operational continuity, and risk reduction. The system should survive your absence.";
+  }
+  if (lower.includes("career") || lower.includes("failure") || lower.includes("imposter")) {
+    return "Confidence is built through surviving uncertainty. The tension between imposter syndrome and operational confidence can be useful if it keeps you humble, curious, and moving instead of frozen.";
+  }
+  return "My first pass: what is the actual ask, what context is missing, who owns the next decision, and where is the system creating the behavior we are reacting to?";
 }
 
 function rewriteMessage(text) {
@@ -260,9 +350,9 @@ function rewriteMessage(text) {
   };
 
   const closers = {
-    direct: "The important part is naming the constraint before we start debating symptoms.",
-    coach: "I want us focused on the pattern, not on blame, because the pattern is what we can actually improve.",
-    exec: "The decision point is whether this is isolated friction or a repeatable risk in the operating model.",
+    direct: "The important part is naming the actual ask and the ownership boundary before we start debating symptoms.",
+    coach: "I want us focused on the pattern, not blame. Trust is built in the small interactions, and this is one of them.",
+    exec: "The decision point is whether this is isolated friction or a repeatable risk to operational sustainability and scale.",
   };
 
   return `${openers[activeTone]} ${raw} ${closers[activeTone]}`;
