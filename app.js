@@ -220,6 +220,81 @@ const advisorPrompts = {
   manager: "What context is missing, what is the actual ask, and how do we create ownership without becoming the hero?",
 };
 
+const brainDomains = [
+  {
+    name: "trust and team dynamics",
+    keywords: ["trust", "high performer", "low trust", "eq", "team", "conflict", "candor", "defensive", "politics", "safe", "psychological"],
+    read: "This sounds like a trust and operating-cost problem, not just a performance problem.",
+    firstMove: "Separate cognitive trust from emotional trust, then name the behavior pattern without turning it into a character trial.",
+    questions: ["What small interactions are teaching the team whether candor is safe?", "Is this person creating leverage, or are people recovering from their impact?", "What expectation is currently hidden?"],
+    moukism: "Trust is built in the small interactions.",
+    say: "Quick heads up, my read is that the output is strong, but the way it is landing is creating trust debt. I want us to work the pattern, not make this personal.",
+  },
+  {
+    name: "incident command",
+    keywords: ["incident", "outage", "sev", "production", "down", "broken", "triage", "war room", "postmortem", "root cause", "rca", "customer impact"],
+    read: "This is an incident-command moment. The job is to turn heat into signal.",
+    firstMove: "Assign ownership, clarify blast radius, separate confirmed facts from assumptions, and set the next update rhythm.",
+    questions: ["Who is the IC?", "What is confirmed versus assumed?", "What is the customer impact?", "What decision is needed in the next 15 minutes?"],
+    moukism: "The system is telling you something.",
+    say: "Let us slow this down. What do we know, what are we assuming, who owns the next decision, and when is the next structured update?",
+  },
+  {
+    name: "support operations",
+    keywords: ["support", "ticket", "queue", "csat", "frontline", "intake", "handoff", "runbook", "escalation", "customer", "vendor", "timezone"],
+    read: "This sounds like support absorbing organizational ambiguity.",
+    firstMove: "Make the invisible work visible, then clarify intake, ownership, escalation rules, and what support should not own.",
+    questions: ["Where is ownership ambiguous?", "Which tickets are becoming invisible?", "What knowledge is still tribal?", "What boundary exists on paper but not in practice?"],
+    moukism: "Support is the nervous system of the organization.",
+    say: "My read is that support is carrying more than support work. We need to clarify ownership and escalation before the team becomes the safety net for every unclear boundary.",
+  },
+  {
+    name: "burnout and sustainability",
+    keywords: ["burnout", "tired", "overloaded", "overwhelmed", "exhausted", "capacity", "single point", "hero", "heroics", "delegate", "boundaries"],
+    read: "This is a sustainability signal. Reliable people often get overloaded first.",
+    firstMove: "Identify what one person is carrying, then redistribute ownership before the system normalizes sacrifice.",
+    questions: ["Who is silently compensating for weak process?", "What work disappears if this person steps away?", "What boundary needs to become explicit?", "What can be documented or delegated this week?"],
+    moukism: "If one person is carrying the system, the system is already failing.",
+    say: "I appreciate the commitment, but I do not want to celebrate burnout as ownership. Let us redesign the handoff instead of depending on sacrifice.",
+  },
+  {
+    name: "communication and conflict",
+    keywords: ["message", "say", "respond", "reply", "email", "slack", "communication", "tone", "conflict", "conversation", "feedback", "difficult conversation"],
+    read: "This is a tone and clarity problem. The goal is to say the true thing in a way the room can use.",
+    firstMove: "Lower defensiveness first, then name the actual ask, missing context, and next decision.",
+    questions: ["What is the actual ask?", "What context is missing?", "What tension needs to be named without creating more tension?", "What should happen next?"],
+    moukism: "Tone determines escalation trajectory.",
+    say: "Keep me honest, but my read is that there is missing context here. Can you walk me through the actual ask and what decision you need from me?",
+  },
+  {
+    name: "leadership and coaching",
+    keywords: ["lead", "leader", "manager", "coach", "coaching", "ownership", "autonomy", "decision", "mentor", "growth", "accountability"],
+    read: "This is a leadership leverage problem. The move is to create context, not dependency.",
+    firstMove: "Transfer enough context for the other person to make a better decision without you becoming the system.",
+    questions: ["What decision framework are they missing?", "Where are you solving instead of coaching?", "What would reduce future dependency on you?", "What does ownership look like here?"],
+    moukism: "A strong leader creates more leaders.",
+    say: "I can help, but I want you to build the muscle too. Walk me through your read, the tradeoffs, and what decision you think we should make.",
+  },
+  {
+    name: "career growth and failure",
+    keywords: ["career", "job", "interview", "failure", "failed", "imposter", "confidence", "uncertain", "growth", "title", "opportunity"],
+    read: "This is a growth-under-uncertainty moment.",
+    firstMove: "Separate fear from signal. Use discomfort as data, but do not let it become the decision-maker.",
+    questions: ["What are you learning that you could not learn from comfort?", "Is this fear protecting you or limiting you?", "What environment will make you grow?", "What would future you thank you for attempting?"],
+    moukism: "Confidence is built through surviving uncertainty.",
+    say: "You are supposed to feel some of this. It means you are stretching. The question is whether the discomfort is growth pain or a real values mismatch.",
+  },
+  {
+    name: "systems and scale",
+    keywords: ["scale", "process", "documentation", "docs", "system", "migration", "integration", "m&a", "technical debt", "operational debt", "workflow"],
+    read: "This is a systems-and-scale problem. The current pain is probably exposing missing memory, ownership, or repeatability.",
+    firstMove: "Document the workflow, name the handoffs, identify hidden dependencies, and make the system survive someone being absent.",
+    questions: ["Where is the hidden dependency?", "What process exists only in someone's head?", "Which handoff is the failure point?", "What needs to become repeatable?"],
+    moukism: "Documentation is memory at scale.",
+    say: "This is not bureaucracy. This is operational continuity. If the system cannot survive someone being out, the system is not mature yet.",
+  },
+];
+
 let activeCategory = "All";
 let activeTone = "direct";
 let wisdomIndex = 0;
@@ -303,38 +378,104 @@ function renderEntries() {
 function addMessage(role, text) {
   const node = document.createElement("article");
   node.className = `message ${role}`;
-  node.innerHTML = `<span>${role === "user" ? "You" : "Mouk"}</span><p>${text}</p>`;
+  node.innerHTML = `<span>${role === "user" ? "You" : "Mouk"}</span><p>${formatMessage(text)}</p>`;
   chatWindow.appendChild(node);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
+function escapeHTML(text) {
+  return text.replace(/[&<>"']/g, (char) => {
+    const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" };
+    return entities[char];
+  });
+}
+
+function formatMessage(text) {
+  return escapeHTML(text).replace(/\n/g, "<br>");
+}
+
+function scoreDomain(domain, lowerQuestion, tokens) {
+  return domain.keywords.reduce((score, keyword) => {
+    const lowerKeyword = keyword.toLowerCase();
+    if (lowerQuestion.includes(lowerKeyword)) return score + (lowerKeyword.includes(" ") ? 5 : 3);
+    if (tokens.includes(lowerKeyword)) return score + 2;
+    return score;
+  }, 0);
+}
+
+function relatedVaultEntries(lowerQuestion, tokens) {
+  return entries
+    .map((entry) => {
+      const haystack = [entry.category, entry.type, entry.title, entry.body, ...entry.tags].join(" ").toLowerCase();
+      const score = tokens.reduce((total, token) => total + (haystack.includes(token) ? 1 : 0), 0);
+      return { entry, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 2)
+    .map((item) => item.entry);
+}
+
+function seededPick(items, seedText, offset = 0) {
+  const seed = [...seedText].reduce((total, char) => total + char.charCodeAt(0), 0);
+  return items[(seed + offset) % items.length];
+}
+
 function answerLikeMouk(question) {
   const lower = question.toLowerCase();
-  if (lower.includes("high performer") || lower.includes("trust")) {
-    return "Separate cognitive trust from emotional trust. They may be reliable and still unsafe to work around. Acknowledge the output, then name the operating cost. High performance with low trust is still operational risk.";
+  const tokens = lower.match(/[a-z0-9]+/g)?.filter((token) => token.length > 2) || [];
+  const ranked = brainDomains
+    .map((domain) => ({ domain, score: scoreDomain(domain, lower, tokens) }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  const primary = ranked[0]?.domain || brainDomains.find((domain) => domain.name === "leadership and coaching");
+  const secondary = ranked[1]?.domain;
+  const related = relatedVaultEntries(lower, tokens);
+  const wantsScript = /\b(say|respond|reply|message|email|slack|word|phrase)\b/.test(lower);
+  const wantsSteps = /\b(how|handle|do|fix|manage|approach|deal)\b/.test(lower);
+  const wantsDecision = /\b(should|decide|choose|option|recommend)\b/.test(lower);
+
+  const opener = seededPick(
+    [
+      "My read:",
+      "Keep me honest, but my read is:",
+      "I would separate the noise from the signal this way:",
+      "The useful version of the problem is:",
+    ],
+    question,
+  );
+
+  const parts = [
+    `${opener} ${primary.read}`,
+    `First move: ${primary.firstMove}`,
+  ];
+
+  if (secondary) {
+    parts.push(`Second lens: this also touches ${secondary.name}. ${secondary.firstMove}`);
   }
-  if (lower.includes("incident") || lower.includes("outage")) {
-    return "Start with IC ownership, blast radius, confirmed facts, assumptions, customer impact, and next decision. Keep shame out of the room. The system is telling you something, so make the signal visible.";
+
+  if (wantsSteps) {
+    parts.push(`Work it in this order: 1. Name the real constraint. 2. Clarify ownership. 3. Separate facts from assumptions. 4. Decide the next useful action.`);
   }
-  if (lower.includes("escalation")) {
-    return "Escalation is communication, not failure. The question is whether risk is visible early enough, accountability is clear enough, and the person asking for help has enough context to move without drama.";
+
+  if (wantsDecision) {
+    parts.push("Decision filter: business impact, human impact, operational sustainability, long-term scale, and blast radius.");
   }
-  if (lower.includes("tone") || lower.includes("conflict") || lower.includes("communication")) {
-    return "Tone determines escalation trajectory. My move would be to listen first, identify the emotional driver, then use questions to lower resistance. Help me understand is often stronger than let me explain.";
+
+  parts.push(`Questions I would ask: ${primary.questions.slice(0, 3).join(" ")} `);
+
+  if (wantsScript) {
+    parts.push(`A way to say it: "${primary.say}"`);
   }
-  if (lower.includes("team") || lower.includes("manager")) {
-    return "Look for the repeated behavior, then ask what the system is rewarding. Keep me honest, but most team issues have missing context, unclear ownership, or trust debt underneath them.";
+
+  if (related.length) {
+    parts.push(`Vault signal: ${related.map((entry) => entry.title).join(" / ")}.`);
   }
-  if (lower.includes("burnout") || lower.includes("support")) {
-    return "My read is that burnout is usually a boundary and ownership signal. Support is the nervous system of the organization, so if it is constantly in pain, the fix is not more appreciation. It is clearer intake, escalation, runbooks, and what support should not own.";
-  }
-  if (lower.includes("documentation") || lower.includes("docs")) {
-    return "Documentation is not bureaucracy. It is memory at scale, onboarding acceleration, operational continuity, and risk reduction. The system should survive your absence.";
-  }
-  if (lower.includes("career") || lower.includes("failure") || lower.includes("imposter")) {
-    return "Confidence is built through surviving uncertainty. The tension between imposter syndrome and operational confidence can be useful if it keeps you humble, curious, and moving instead of frozen.";
-  }
-  return "My first pass: what is the actual ask, what context is missing, who owns the next decision, and where is the system creating the behavior we are reacting to?";
+
+  parts.push(`Moukism: ${primary.moukism}`);
+
+  return parts.join("\n\n");
 }
 
 function rewriteMessage(text) {
