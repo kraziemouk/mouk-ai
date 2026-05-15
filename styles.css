@@ -1,20 +1,19 @@
 :root {
   color-scheme: dark;
-  --bg: #11120f;
-  --surface: rgba(24, 25, 21, 0.86);
-  --surface-strong: rgba(30, 31, 26, 0.95);
-  --surface-soft: rgba(230, 220, 196, 0.055);
-  --line: rgba(219, 207, 180, 0.14);
-  --line-strong: rgba(219, 207, 180, 0.28);
-  --text: #f1eadb;
-  --muted: #b8ad98;
-  --faint: #766f61;
-  --green: #a5b27a;
-  --cyan: #8ea7aa;
-  --amber: #c69a58;
-  --rose: #bd7569;
-  --ink: #0c0d0b;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  --bg: #070809;
+  --surface: rgba(17, 18, 18, 0.94);
+  --surface-strong: rgba(23, 23, 22, 0.98);
+  --surface-soft: rgba(245, 241, 235, 0.055);
+  --line: rgba(245, 241, 235, 0.12);
+  --line-strong: rgba(201, 126, 78, 0.38);
+  --text: #f4f0ea;
+  --muted: #b8b1a8;
+  --faint: #746e68;
+  --copper: #c97e4e;
+  --bone: #d8d4ce;
+  --rust: #9d6041;
+  --ink: #050607;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
 }
 
 * {
@@ -31,9 +30,10 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 12%, rgba(165, 178, 122, 0.12), transparent 26rem),
-    radial-gradient(circle at 86% 2%, rgba(198, 154, 88, 0.1), transparent 25rem),
-    linear-gradient(135deg, #11120f 0%, #181914 50%, #120f0c 100%);
+    linear-gradient(120deg, rgba(245, 241, 235, 0.026) 0 1px, transparent 1px 72px),
+    linear-gradient(60deg, rgba(245, 241, 235, 0.018) 0 1px, transparent 1px 72px),
+    linear-gradient(180deg, rgba(245, 241, 235, 0.035), transparent 34vh),
+    #070809;
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -64,7 +64,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   outline: none;
-  background: rgba(14, 15, 12, 0.78);
+  background: rgba(10, 11, 12, 0.82);
   color: var(--text);
 }
 
@@ -82,8 +82,8 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-color: rgba(165, 178, 122, 0.5);
-  box-shadow: 0 0 0 3px rgba(165, 178, 122, 0.1);
+  border-color: rgba(201, 126, 78, 0.58);
+  box-shadow: 0 0 0 3px rgba(201, 126, 78, 0.12);
 }
 
 #memory-canvas {
@@ -92,7 +92,7 @@ textarea:focus {
   z-index: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.42;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -113,7 +113,9 @@ textarea:focus {
   height: 100vh;
   padding: 24px;
   border-right: 1px solid var(--line);
-  background: rgba(17, 18, 15, 0.74);
+  background:
+    linear-gradient(180deg, rgba(245, 241, 235, 0.035), transparent 220px),
+    rgba(11, 12, 13, 0.82);
   backdrop-filter: blur(24px);
   transition: opacity 180ms ease;
 }
@@ -131,10 +133,12 @@ textarea:focus {
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid rgba(165, 178, 122, 0.46);
+  border: 1px solid rgba(201, 126, 78, 0.52);
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(165, 178, 122, 0.15), rgba(142, 167, 170, 0.055));
-  color: var(--green);
+  background:
+    linear-gradient(135deg, rgba(245, 241, 235, 0.12) 0 48%, rgba(201, 126, 78, 0.2) 48% 100%),
+    #08090a;
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-weight: 900;
 }
@@ -183,16 +187,18 @@ textarea:focus {
 }
 
 .rail-button.active span {
-  color: var(--green);
+  color: var(--copper);
 }
 
 .system-card {
   margin-top: auto;
   padding: 14px;
-  border: 1px solid rgba(165, 178, 122, 0.2);
+  border: 1px solid rgba(201, 126, 78, 0.26);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.78);
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(135deg, rgba(245, 241, 235, 0.04) 0 50%, transparent 50%),
+    rgba(8, 9, 10, 0.86);
+  box-shadow: none;
   color: var(--muted);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.77rem;
@@ -237,7 +243,7 @@ textarea:focus {
 .eyebrow,
 .panel-code {
   margin: 0 0 6px;
-  color: var(--green);
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -298,7 +304,7 @@ h4 {
 .tone-button,
 .lens-list button {
   padding: 0 14px;
-  background: rgba(230, 220, 196, 0.06);
+  background: rgba(245, 241, 235, 0.06);
 }
 
 .primary-button,
@@ -306,7 +312,7 @@ h4 {
   display: inline-grid;
   place-items: center;
   padding: 0 18px;
-  background: rgba(165, 178, 122, 0.2);
+  background: rgba(201, 126, 78, 0.22);
 }
 
 .ghost-button:hover,
@@ -315,10 +321,12 @@ h4 {
 .tone-button:hover,
 .tone-button.active,
 .lens-list button:hover {
-  border-color: rgba(165, 178, 122, 0.52);
+  border-color: rgba(201, 126, 78, 0.58);
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(310px, 0.7fr);
   gap: 18px;
@@ -328,12 +336,26 @@ h4 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(230, 220, 196, 0.05), transparent 60%),
-    rgba(24, 25, 21, 0.7);
-  box-shadow: var(--shadow);
+    linear-gradient(150deg, rgba(245, 241, 235, 0.085) 0 21%, transparent 21% 100%),
+    linear-gradient(180deg, rgba(245, 241, 235, 0.035), transparent 60%),
+    rgba(16, 17, 18, 0.82);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(245, 241, 235, 0.035) 0 1px, transparent 1px 52px),
+    linear-gradient(60deg, rgba(245, 241, 235, 0.024) 0 1px, transparent 1px 52px);
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 1;
   align-self: end;
 }
 
@@ -351,8 +373,8 @@ h4 {
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: var(--green);
-  box-shadow: 0 0 12px rgba(165, 178, 122, 0.45);
+  background: var(--copper);
+  box-shadow: none;
 }
 
 .hero-copy p {
@@ -364,17 +386,38 @@ h4 {
 }
 
 .memory-panel {
+  position: relative;
+  overflow: hidden;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   min-height: 310px;
   padding: 22px;
-  border: 1px solid rgba(198, 154, 88, 0.26);
+  border: 1px solid rgba(201, 126, 78, 0.34);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(198, 154, 88, 0.12), rgba(165, 178, 122, 0.035)),
-    repeating-linear-gradient(0deg, transparent 0 18px, rgba(230, 220, 196, 0.035) 19px);
+    linear-gradient(135deg, transparent 0 58%, rgba(245, 241, 235, 0.08) 58% 62%, transparent 62% 100%),
+    linear-gradient(120deg, rgba(245, 241, 235, 0.04) 0 1px, transparent 1px 54px),
+    rgba(12, 13, 14, 0.9);
+}
+
+.memory-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(60deg, transparent 0 36px, rgba(201, 126, 78, 0.055) 36px 37px, transparent 37px 72px),
+    linear-gradient(120deg, transparent 0 36px, rgba(245, 241, 235, 0.035) 36px 37px, transparent 37px 72px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.memory-panel blockquote,
+.memory-panel p {
+  position: relative;
+  z-index: 1;
 }
 
 .memory-panel blockquote {
@@ -386,7 +429,7 @@ h4 {
 
 .memory-panel p:last-child {
   margin-bottom: 0;
-  color: var(--amber);
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.78rem;
 }
@@ -411,7 +454,7 @@ h4 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(18px);
 }
 
@@ -443,13 +486,13 @@ h4 {
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(230, 220, 196, 0.055);
+  background: rgba(245, 241, 235, 0.055);
   color: var(--muted);
 }
 
 .filter-row button.active,
 .filter-row button:hover {
-  border-color: rgba(165, 178, 122, 0.46);
+  border-color: rgba(201, 126, 78, 0.5);
   color: var(--text);
 }
 
@@ -500,7 +543,9 @@ h4 {
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.55);
+  background:
+    linear-gradient(145deg, rgba(245, 241, 235, 0.035), transparent 44%),
+    rgba(10, 11, 12, 0.66);
 }
 
 .entry-meta {
@@ -528,9 +573,9 @@ h4 {
 
 .entry-tags span {
   padding: 5px 8px;
-  border: 1px solid rgba(142, 167, 170, 0.18);
+  border: 1px solid rgba(216, 212, 206, 0.16);
   border-radius: 999px;
-  color: var(--cyan);
+  color: var(--bone);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.68rem;
 }
@@ -553,9 +598,9 @@ h4 {
 
 .saved-note {
   padding: 12px;
-  border: 1px solid rgba(198, 154, 88, 0.2);
+  border: 1px solid rgba(201, 126, 78, 0.24);
   border-radius: 8px;
-  background: rgba(198, 154, 88, 0.07);
+  background: rgba(201, 126, 78, 0.08);
 }
 
 .saved-note strong {
@@ -578,7 +623,7 @@ h4 {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.58);
+  background: rgba(10, 11, 12, 0.64);
 }
 
 .message {
@@ -588,23 +633,23 @@ h4 {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(165, 178, 122, 0.07);
+  background: rgba(201, 126, 78, 0.08);
 }
 
 .message.user {
   justify-self: end;
-  border-color: rgba(142, 167, 170, 0.24);
-  background: rgba(142, 167, 170, 0.08);
+  border-color: rgba(216, 212, 206, 0.22);
+  background: rgba(245, 241, 235, 0.07);
 }
 
 .message span {
-  color: var(--green);
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.72rem;
 }
 
 .message.user span {
-  color: var(--cyan);
+  color: var(--bone);
 }
 
 .message p {
@@ -678,14 +723,14 @@ h4 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    linear-gradient(145deg, rgba(189, 117, 105, 0.08), transparent),
-    rgba(12, 13, 11, 0.55);
+    linear-gradient(145deg, rgba(201, 126, 78, 0.1), transparent),
+    rgba(10, 11, 12, 0.62);
 }
 
 .chaos-card span {
   display: block;
   margin-bottom: 18px;
-  color: var(--rose);
+  color: var(--rust);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.75rem;
 }
@@ -699,8 +744,10 @@ h4 {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(180deg, rgba(245, 241, 235, 0.03), transparent 220px),
+    var(--surface);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(18px);
 }
 
@@ -714,7 +761,7 @@ h4 {
 .copy-status {
   min-height: 20px;
   margin: -8px 0 12px;
-  color: var(--green);
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.76rem;
 }
@@ -727,7 +774,7 @@ h4 {
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.52);
+  background: rgba(10, 11, 12, 0.6);
 }
 
 .resume-subtab {
@@ -741,8 +788,8 @@ h4 {
 
 .resume-subtab:hover,
 .resume-subtab.active {
-  border-color: rgba(165, 178, 122, 0.4);
-  background: rgba(165, 178, 122, 0.11);
+  border-color: rgba(201, 126, 78, 0.44);
+  background: rgba(201, 126, 78, 0.13);
   color: var(--text);
 }
 
@@ -760,9 +807,11 @@ h4 {
   gap: 18px;
   margin-bottom: 18px;
   padding: 18px;
-  border: 1px solid rgba(165, 178, 122, 0.2);
+  border: 1px solid rgba(201, 126, 78, 0.24);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.54);
+  background:
+    linear-gradient(135deg, rgba(245, 241, 235, 0.07) 0 36%, transparent 36%),
+    rgba(10, 11, 12, 0.66);
 }
 
 .resume-hero h4 {
@@ -804,10 +853,10 @@ h4 {
 
 .resume-tags span {
   padding: 7px 10px;
-  border: 1px solid rgba(142, 167, 170, 0.2);
+  border: 1px solid rgba(216, 212, 206, 0.18);
   border-radius: 999px;
-  color: var(--cyan);
-  background: rgba(142, 167, 170, 0.06);
+  color: var(--bone);
+  background: rgba(245, 241, 235, 0.055);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.72rem;
 }
@@ -838,13 +887,13 @@ h4 {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.5);
+  background: rgba(10, 11, 12, 0.58);
 }
 
 .resume-grid span {
   display: block;
   margin-bottom: 10px;
-  color: var(--green);
+  color: var(--copper);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.75rem;
 }
@@ -856,7 +905,7 @@ h4 {
 .resume-section blockquote {
   margin: 0 0 14px;
   padding-left: 14px;
-  border-left: 2px solid var(--green);
+  border-left: 2px solid var(--copper);
   color: var(--text);
   font-size: 1.2rem;
   line-height: 1.35;
@@ -875,7 +924,7 @@ h4 {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(12, 13, 11, 0.5);
+  background: rgba(10, 11, 12, 0.58);
 }
 
 .raci-row span {
@@ -890,8 +939,8 @@ h4 {
 }
 
 .raci-head {
-  border-color: rgba(165, 178, 122, 0.24);
-  background: rgba(165, 178, 122, 0.08);
+  border-color: rgba(201, 126, 78, 0.28);
+  background: rgba(201, 126, 78, 0.09);
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.76rem;
 }

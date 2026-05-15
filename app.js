@@ -407,9 +407,9 @@ const views = {
   },
   resume: {
     label: "Resume",
-    title: "Builder of scalable internal technology organizations.",
+    title: "Experience, scope, and operating impact.",
     summary:
-      "Mouk Resume · May 2026. A Head of IT narrative around internal technology organizations, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
+      "Mouk Resume · May 2026. A narrative around internal technology organizations, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
     quote: "I build structure while the business keeps moving.",
     caption: "Mouk Resume · May 2026",
   },
@@ -928,8 +928,8 @@ function resizeCanvas() {
 
 function drawMemory() {
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "rgba(140, 255, 181, 0.44)";
-  ctx.strokeStyle = "rgba(244, 189, 98, 0.1)";
+  ctx.fillStyle = "rgba(245, 241, 235, 0.32)";
+  ctx.strokeStyle = "rgba(201, 126, 78, 0.11)";
   ctx.lineWidth = 1;
 
   points.forEach((point, index) => {
