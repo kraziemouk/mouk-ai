@@ -409,9 +409,9 @@ const views = {
     label: "Resume",
     title: "Experience, scope, and operating impact.",
     summary:
-      "Mouk Resume · May 2026. A narrative around internal technology organizations, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
+      "Mouk Resume - May 2026. A narrative around global technology operations, Games/VFX support, infrastructure, vendor governance, M&A integration, and calm leadership under pressure.",
     quote: "I build structure while the business keeps moving.",
-    caption: "Mouk Resume · May 2026",
+    caption: "Mouk Resume - May 2026",
   },
 };
 
@@ -445,18 +445,13 @@ const advisorPrompts = {
   manager: "What context is missing, what is the actual ask, and how do we create ownership without becoming the hero?",
 };
 
-const resumeBulletText = `Mouk Resume · May 2026
+const resumeBulletText = `Mouk Resume - May 2026
 
-- Hands-on technology operations leader who builds scalable internal technology organizations during periods of rapid growth and ambiguity.
-- Built and scaled global support operations with follow-the-sun coverage, centralized intake, structured escalation, and measurable service quality.
-- Led the shift from reactive support toward scalable operating systems using ticket patterns, response/resolution metrics, CSAT, and stakeholder feedback.
-- Managed global vendor and MSP relationships across multiple regions, ensuring accountability, support coverage, and operational continuity.
-- Supported onboarding, access readiness, hardware/software coordination, and operational enablement for distributed teams.
-- Drove integrations and operational changes with a focus on low disruption, clear ownership, and reliable transition planning.
-- Established documentation, runbooks, escalation matrices, and ownership maps to reduce tribal knowledge and single points of failure.
-- Reframed support from ticket execution into workforce enablement, service reliability, user experience, feedback loops, and operational intelligence.
-- Strong fit for fast-growth companies transitioning from outsourced or fragmented IT into clear internal ownership.
-- Leadership thesis: Build people. Build trust. Build systems that survive pressure.`;
+- LinkedIn: https://www.linkedin.com/in/mouk-chounlamany-4a788975/
+- Leads global technology operations for production-critical Games and VFX environments, building follow-the-sun support models and operational consistency across regions.
+- Reduced ticket volume and resolution time by approximately 40% and escalations by approximately 80% through workflow optimization, structured intake, and escalation discipline.
+- Led 3 M&A integrations, onboarding global studios into enterprise systems, support operations, workflows, and service delivery expectations.
+- Brings a rare mix of network engineering, security operations, MSP/vendor governance, business continuity, and people-first operational leadership.`;
 
 const brainDomains = [
   {
