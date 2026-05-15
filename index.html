@@ -149,7 +149,7 @@
               <div class="chat-window" id="chat-window" aria-live="polite">
                 <article class="message bot">
                   <span>Mouk</span>
-                  <p>Give me the messy version first. Clean versions are where the useful constraints go to hide.</p>
+                  <p>Yeah, this is probably better answered by the real Mouk. Ask the messy version first; the clean version usually hides the useful constraint.</p>
                 </article>
               </div>
               <form class="chat-form" id="chat-form">
@@ -232,111 +232,195 @@
                 <p class="eyebrow">Tailored resume</p>
                 <h3>Head of IT / Technology Operations Builder</h3>
               </div>
-              <span class="counter">Future Secure AI</span>
-            </div>
-
-            <div class="resume-hero">
-              <div>
-                <h4>Mouk Chounlamany</h4>
-                <p>
-                  Hands-on technology operations leader who builds scalable internal technology organizations during periods of rapid growth and ambiguity.
-                </p>
-              </div>
-              <p>
-                Strong fit for fast-growth companies transitioning from outsourced IT to internal ownership, especially where the first Head of IT must stabilize the current state, stay hands-on, build the future team, and create scalable systems while the business keeps moving.
-              </p>
-            </div>
-
-            <div class="resume-section">
-              <h4>Target Fit</h4>
-              <ul>
-                <li>Build and scale internal IT operations during rapid company growth.</li>
-                <li>Transition outsourced or fragmented support models into clear in-house ownership.</li>
-                <li>Establish helpdesk, onboarding/offboarding, endpoint, access, vendor, and documentation foundations.</li>
-                <li>Partner with Security, Risk, Platform Engineering, and business leaders on ownership boundaries and compliance readiness.</li>
-                <li>Lead as both hands-on operator and strategic builder.</li>
-              </ul>
-            </div>
-
-            <div class="resume-section">
-              <h4>Core Strengths</h4>
-              <div class="resume-tags">
-                <span>IT strategy</span>
-                <span>Global support operations</span>
-                <span>MSP governance</span>
-                <span>Identity and access</span>
-                <span>Endpoint lifecycle</span>
-                <span>SaaS license management</span>
-                <span>Security-minded operations</span>
-                <span>Documentation</span>
-                <span>M&A integrations</span>
-                <span>Service delivery</span>
-                <span>Business continuity</span>
-                <span>Hands-on leadership</span>
+              <div class="resume-actions">
+                <button class="ghost-button" type="button" id="copy-resume-bullets">Copy bullets</button>
+                <button class="primary-button" type="button" id="print-resume">Export PDF</button>
               </div>
             </div>
+            <p class="copy-status" id="copy-status" aria-live="polite"></p>
 
-            <div class="resume-section">
-              <h4>Experience Snapshot</h4>
-              <div class="resume-role">
+            <div class="resume-subtabs" role="tablist" aria-label="Resume sections">
+              <button class="resume-subtab active" type="button" data-resume-tab="overview">Resume</button>
+              <button class="resume-subtab" type="button" data-resume-tab="raci">RACI / Scope</button>
+              <button class="resume-subtab" type="button" data-resume-tab="accomplishments">Accomplishments</button>
+            </div>
+
+            <div class="resume-tab-panel active" data-resume-panel="overview">
+              <div class="resume-hero">
                 <div>
-                  <strong>Manager, Technology Systems and Operations</strong>
-                  <span>Technology operations and global support leadership</span>
+                  <h4>Mouk Chounlamany</h4>
+                  <p>
+                    Hands-on technology operations leader who builds scalable internal technology organizations during periods of rapid growth and ambiguity.
+                  </p>
                 </div>
+                  <p>
+                    Mouk Resume · May 2026. Focused on building scalable internal technology organizations, service delivery, support operations, vendor governance, and systems that survive pressure.
+                  </p>
+              </div>
+
+              <div class="resume-section">
+                <h4>Target Direction</h4>
                 <ul>
-                  <li>Built and scaled global support operations with follow-the-sun coverage, centralized intake, structured escalation, and measurable service quality.</li>
-                  <li>Led the shift from reactive support toward scalable operating systems using ticket patterns, response/resolution metrics, CSAT, and stakeholder feedback.</li>
-                  <li>Managed global vendor and MSP relationships across multiple regions, ensuring accountability, support coverage, and operational continuity.</li>
-                  <li>Drove integrations and operational changes with a focus on low disruption, clear ownership, and reliable transition planning.</li>
-                  <li>Established documentation, runbooks, escalation matrices, and ownership maps to reduce tribal knowledge and single points of failure.</li>
+                  <li>Build and scale internal IT operations during rapid company growth.</li>
+                  <li>Transition outsourced or fragmented support models into clear in-house ownership.</li>
+                  <li>Establish helpdesk, onboarding/offboarding, endpoint, access, vendor, and documentation foundations.</li>
+                  <li>Partner with Security, Risk, Platform Engineering, and business leaders on ownership boundaries and operational readiness.</li>
+                  <li>Lead as both hands-on operator and strategic builder.</li>
+                </ul>
+              </div>
+
+              <div class="resume-section">
+                <h4>Core Strengths</h4>
+                <div class="resume-tags">
+                  <span>IT strategy</span>
+                  <span>Global support operations</span>
+                  <span>MSP governance</span>
+                  <span>Identity and access</span>
+                  <span>Endpoint lifecycle</span>
+                  <span>SaaS license management</span>
+                  <span>Security-minded operations</span>
+                  <span>Documentation</span>
+                  <span>M&A integrations</span>
+                  <span>Service delivery</span>
+                  <span>Business continuity</span>
+                  <span>Hands-on leadership</span>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h4>Experience Snapshot</h4>
+                <div class="resume-role">
+                  <div>
+                    <strong>Manager, Technology Systems and Operations</strong>
+                    <span>Technology operations and global support leadership</span>
+                  </div>
+                  <ul>
+                    <li>Built and scaled global support operations with follow-the-sun coverage, centralized intake, structured escalation, and measurable service quality.</li>
+                    <li>Led the shift from reactive support toward scalable operating systems using ticket patterns, response/resolution metrics, CSAT, and stakeholder feedback.</li>
+                    <li>Managed global vendor and MSP relationships across multiple regions, ensuring accountability, support coverage, and operational continuity.</li>
+                    <li>Drove integrations and operational changes with a focus on low disruption, clear ownership, and reliable transition planning.</li>
+                    <li>Established documentation, runbooks, escalation matrices, and ownership maps to reduce tribal knowledge and single points of failure.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h4>Leadership Philosophy</h4>
+                <blockquote>
+                  Build people. Build trust. Build systems that survive pressure.
+                </blockquote>
+                <ul>
+                  <li>Clarity over control.</li>
+                  <li>Context over micromanagement.</li>
+                  <li>People over process, but process matters when people scale.</li>
+                  <li>Support is a signal layer, not just execution.</li>
+                  <li>The system should survive your absence.</li>
                 </ul>
               </div>
             </div>
 
-            <div class="resume-section">
-              <h4>Selected Operating Achievements</h4>
-              <div class="resume-grid">
-                <article>
-                  <span>Global support systems</span>
-                  <p>Created scalable support foundations with follow-the-sun coverage, structured escalation, documentation, vendor coordination, and measurable service quality.</p>
-                </article>
-                <article>
-                  <span>Signal-based operations</span>
-                  <p>Used support data and frontline feedback to identify repeat issues, reduce operational noise, and partner on durable fixes.</p>
-                </article>
-                <article>
-                  <span>MSP and vendor governance</span>
-                  <p>Managed accountability, regional coverage, escalation ownership, and service expectations while balancing internal capability with external support.</p>
-                </article>
-                <article>
-                  <span>Low-disruption transitions</span>
-                  <p>Managed handoffs, integrations, and operational changes with stability, stakeholder alignment, and continuity of support.</p>
-                </article>
+            <div class="resume-tab-panel" data-resume-panel="raci">
+              <div class="resume-section">
+                <h4>Operating Scope / RACI-Style View</h4>
+                <div class="raci-table" role="table" aria-label="Resume operating scope">
+                  <div class="raci-row raci-head" role="row">
+                    <span>Area</span>
+                    <span>Role</span>
+                    <span>Evidence</span>
+                    <span>Role Relevance</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Global support operations</span>
+                    <span>Accountable</span>
+                    <span>Built follow-the-sun support, intake, triage, escalation, and service quality rhythms.</span>
+                    <span>Foundation for internal helpdesk, SLAs, and distributed employee support.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>MSP / vendor governance</span>
+                    <span>Accountable / Responsible</span>
+                    <span>Managed global vendors/MSPs, coverage expectations, escalation ownership, and service performance.</span>
+                    <span>Direct match for outsourced IT transition and vendor due diligence.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Onboarding, access, and readiness</span>
+                    <span>Responsible / Consulted</span>
+                    <span>Supported onboarding, access readiness, software coordination, and operational enablement.</span>
+                    <span>Maps to onboarding/offboarding, access provisioning, and employee productivity.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Endpoint and hardware lifecycle</span>
+                    <span>Responsible / Consulted</span>
+                    <span>Coordinated hardware, software, logistics, repairs, replacements, and operational readiness needs.</span>
+                    <span>Maps to laptop lifecycle, asset tracking, procurement, and repairs.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Identity and SaaS operations</span>
+                    <span>Responsible / Consulted</span>
+                    <span>Worked across access, SaaS workflows, licensing, identity-related integrations, and support readiness.</span>
+                    <span>Supports IAM, SaaS license governance, and right-access/right-person controls.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Integrations and migrations</span>
+                    <span>Accountable / Responsible</span>
+                    <span>Led low-disruption operational transitions, integrations, handoffs, and dependency mapping.</span>
+                    <span>Critical for fast-growth, global scaling, vendor transitions, and hidden dependencies.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Security and compliance partnership</span>
+                    <span>Consulted / Informed</span>
+                    <span>Security-minded operator focused on access hygiene, operational controls, documentation, and audit-ready process.</span>
+                    <span>Supports SOC 2 / ISO readiness, endpoint posture, and Security/Risk alignment.</span>
+                  </div>
+                  <div class="raci-row" role="row">
+                    <span>Documentation and process</span>
+                    <span>Accountable</span>
+                    <span>Built runbooks, escalation matrices, ownership maps, readiness programs, and repeatable workflows.</span>
+                    <span>Matches need for scalable, repeatable, auditable IT procedures.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="resume-section">
-              <h4>MSP-To-Internal Transition Approach</h4>
-              <ol>
-                <li><strong>Discover:</strong> review MSP scope, SLAs, escalation paths, employee pain points, and undocumented dependencies.</li>
-                <li><strong>Stabilize:</strong> preserve continuity, clarify ownership, and create visibility into workflows, assets, access, and vendor performance.</li>
-                <li><strong>Internalize:</strong> prioritize high-value functions, build knowledge base and runbooks, and hire around operational gaps.</li>
-                <li><strong>Optimize:</strong> standardize tooling, improve automation, mature security posture, and establish scalable service metrics.</li>
-              </ol>
-            </div>
+            <div class="resume-tab-panel" data-resume-panel="accomplishments">
+              <div class="resume-section">
+                <h4>Selected Operating Achievements</h4>
+                <div class="resume-grid">
+                  <article>
+                    <span>Global support systems</span>
+                    <p>Created scalable support foundations with follow-the-sun coverage, structured escalation, documentation, vendor coordination, and measurable service quality.</p>
+                  </article>
+                  <article>
+                    <span>Signal-based operations</span>
+                    <p>Used support data and frontline feedback to identify repeat issues, reduce operational noise, and partner on durable fixes.</p>
+                  </article>
+                  <article>
+                    <span>MSP and vendor governance</span>
+                    <p>Managed accountability, regional coverage, escalation ownership, and service expectations while balancing internal capability with external support.</p>
+                  </article>
+                  <article>
+                    <span>Low-disruption transitions</span>
+                    <p>Managed handoffs, integrations, and operational changes with stability, stakeholder alignment, and continuity of support.</p>
+                  </article>
+                  <article>
+                    <span>Reduced tribal knowledge</span>
+                    <p>Created documentation, runbooks, escalation matrices, and ownership maps to make systems less dependent on individual memory.</p>
+                  </article>
+                  <article>
+                    <span>Frontline readiness</span>
+                    <p>Improved support consistency by defining expectations, escalation behavior, workflows, and quality standards for frontline operators.</p>
+                  </article>
+                </div>
+              </div>
 
-            <div class="resume-section">
-              <h4>Leadership Philosophy</h4>
-              <blockquote>
-                Build people. Build trust. Build systems that survive pressure.
-              </blockquote>
-              <ul>
-                <li>Clarity over control.</li>
-                <li>Context over micromanagement.</li>
-                <li>People over process, but process matters when people scale.</li>
-                <li>Support is a signal layer, not just execution.</li>
-                <li>The system should survive your absence.</li>
-              </ul>
+              <div class="resume-section">
+                <h4>MSP-To-Internal Transition Approach</h4>
+                <ol>
+                  <li><strong>Discover:</strong> review MSP scope, SLAs, escalation paths, employee pain points, and undocumented dependencies.</li>
+                  <li><strong>Stabilize:</strong> preserve continuity, clarify ownership, and create visibility into workflows, assets, access, and vendor performance.</li>
+                  <li><strong>Internalize:</strong> prioritize high-value functions, build knowledge base and runbooks, and hire around operational gaps.</li>
+                  <li><strong>Optimize:</strong> standardize tooling, improve automation, mature security posture, and establish scalable service metrics.</li>
+                </ol>
+              </div>
             </div>
           </article>
         </section>

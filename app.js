@@ -409,9 +409,9 @@ const views = {
     label: "Resume",
     title: "Builder of scalable internal technology organizations.",
     summary:
-      "A Head of IT narrative tailored around outsourced-to-internal transition, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
+      "Mouk Resume · May 2026. A Head of IT narrative around internal technology organizations, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
     quote: "I build structure while the business keeps moving.",
-    caption: "Future Secure AI positioning",
+    caption: "Mouk Resume · May 2026",
   },
 };
 
@@ -444,6 +444,19 @@ const advisorPrompts = {
   team: "What behavior keeps repeating, what boundary is unclear, and what reward or fear makes this behavior rational?",
   manager: "What context is missing, what is the actual ask, and how do we create ownership without becoming the hero?",
 };
+
+const resumeBulletText = `Mouk Resume · May 2026
+
+- Hands-on technology operations leader who builds scalable internal technology organizations during periods of rapid growth and ambiguity.
+- Built and scaled global support operations with follow-the-sun coverage, centralized intake, structured escalation, and measurable service quality.
+- Led the shift from reactive support toward scalable operating systems using ticket patterns, response/resolution metrics, CSAT, and stakeholder feedback.
+- Managed global vendor and MSP relationships across multiple regions, ensuring accountability, support coverage, and operational continuity.
+- Supported onboarding, access readiness, hardware/software coordination, and operational enablement for distributed teams.
+- Drove integrations and operational changes with a focus on low disruption, clear ownership, and reliable transition planning.
+- Established documentation, runbooks, escalation matrices, and ownership maps to reduce tribal knowledge and single points of failure.
+- Reframed support from ticket execution into workforce enablement, service reliability, user experience, feedback loops, and operational intelligence.
+- Strong fit for fast-growth companies transitioning from outsourced or fragmented IT into clear internal ownership.
+- Leadership thesis: Build people. Build trust. Build systems that survive pressure.`;
 
 const brainDomains = [
   {
@@ -547,6 +560,11 @@ const brainInput = document.querySelector("#brain-input");
 const chatWindow = document.querySelector("#chat-window");
 const askShortcut = document.querySelector("#ask-mouk-shortcut");
 const askSubmit = document.querySelector("#ask-submit");
+const resumeSubtabs = document.querySelectorAll(".resume-subtab");
+const resumePanels = document.querySelectorAll(".resume-tab-panel");
+const copyResumeBullets = document.querySelector("#copy-resume-bullets");
+const printResume = document.querySelector("#print-resume");
+const copyStatus = document.querySelector("#copy-status");
 const rewriteInput = document.querySelector("#rewrite-input");
 const rewriteSubmit = document.querySelector("#rewrite-submit");
 const rewriteOutput = document.querySelector("#rewrite-output");
@@ -769,6 +787,32 @@ function renderChaos() {
 
 railButtons.forEach((button) => {
   button.addEventListener("click", () => setView(button.dataset.view));
+});
+
+resumeSubtabs.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tab = button.dataset.resumeTab;
+    resumeSubtabs.forEach((item) => item.classList.toggle("active", item === button));
+    resumePanels.forEach((panel) => panel.classList.toggle("active", panel.dataset.resumePanel === tab));
+  });
+});
+
+copyResumeBullets.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(resumeBulletText);
+    copyStatus.textContent = "Resume bullets copied.";
+  } catch (error) {
+    copyStatus.textContent = "Copy failed. Select the text from the Resume tab and copy manually.";
+  }
+
+  window.setTimeout(() => {
+    copyStatus.textContent = "";
+  }, 2400);
+});
+
+printResume.addEventListener("click", () => {
+  setView("resume");
+  window.print();
 });
 
 askShortcut.addEventListener("click", () => {

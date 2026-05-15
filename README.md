@@ -15,3 +15,5 @@ It combines:
 Open `index.html` directly, or deploy the folder to Vercel. The `vercel.json` file includes clean URLs and production-minded response headers.
 
 The `knowledge/` folder now contains Mouk-specific leadership philosophy, incident management, team dynamics, communication style, operational scars, Moukisms, personal context, development archive, sanitized How-to-Level framework, and The Mouk Company operating doctrine.
+
+The Resume tab is labeled as `Mouk Resume · May 2026` while keeping tailored Head of IT positioning available in the local resume drafts.
