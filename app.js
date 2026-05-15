@@ -28,10 +28,24 @@ const entries = [
     tags: ["leadership", "clarity", "scale"],
   },
   {
+    category: "How-to-Level",
+    type: "Operating framework",
+    title: "Leveling through systems, signal, and continuity",
+    body: "The How-to-Level framework turns career growth into reusable operating doctrine: no disruption, clear ownership, structured knowledge transfer, and support as a signal layer.",
+    tags: ["growth", "transition", "service-delivery"],
+  },
+  {
+    category: "How-to-Level",
+    type: "Interview doctrine",
+    title: "Use IQ, EQ, and CQ",
+    body: "IQ tests whether the system can work. EQ tests whether people can operate safely inside it. CQ tests whether the model will actually be adopted.",
+    tags: ["iq", "eq", "cq"],
+  },
+  {
     category: "Development Archive",
     type: "Core identity",
     title: "Built through instability",
-    body: "Refugee camp beginnings, Laos, cultural translation, factory work, Air Force discipline, technical operations, and Netflix leadership shaped a leader built through instability and grounded through people.",
+    body: "Refugee camp beginnings, Laos, cultural translation, factory work, Air Force discipline, and technology operations shaped a leader built through instability and grounded through people.",
     tags: ["origin", "identity", "resilience"],
   },
   {
@@ -129,7 +143,7 @@ const entries = [
     category: "Personal Context",
     type: "Origin",
     title: "Operator shaped by ambiguity",
-    body: "Refugee camp beginnings, factory work, Air Force discipline, technical operations, and Netflix leadership shaped resilience, humility, pragmatism, and empathy for frontline work.",
+    body: "Refugee camp beginnings, factory work, Air Force discipline, and technology operations shaped resilience, humility, pragmatism, and empathy for frontline work.",
     tags: ["background", "resilience", "operator"],
   },
   {
@@ -153,12 +167,215 @@ const entries = [
     body: "Hard situations eventually become normalized experience. What once felt overwhelming becomes operational wisdom later.",
     tags: ["wisdom", "failure", "growth"],
   },
+  {
+    category: "Leadership",
+    type: "Service model",
+    title: "Leadership is service under pressure",
+    body: "You respect leaders who support the frontline, remove friction, absorb pressure, create clarity, and protect the team. Authority matters less than usefulness under stress.",
+    tags: ["service", "frontline", "pressure"],
+  },
+  {
+    category: "Leadership",
+    type: "Operating belief",
+    title: "Context scales better than control",
+    body: "Micromanagement fails at scale. High-performing teams need clear intent, business context, operational boundaries, and decision frameworks.",
+    tags: ["context", "autonomy", "scale"],
+  },
+  {
+    category: "Leadership",
+    type: "Emotional weight",
+    title: "Leadership carries invisible pressure",
+    body: "Leaders carry ambiguity, emotional labor, decision fatigue, and organizational tension. Sustainable leadership requires boundaries, pacing, and controlled communication.",
+    tags: ["resilience", "boundaries", "leadership"],
+  },
+  {
+    category: "Incident Management",
+    type: "Escalation",
+    title: "Escalation is communication",
+    body: "Healthy escalation means risk is visible, accountability exists, and people are asking for help early. Escalation is not failure when the system is working.",
+    tags: ["escalation", "risk", "accountability"],
+  },
+  {
+    category: "Incident Management",
+    type: "Handoff risk",
+    title: "Every handoff is a failure point",
+    body: "Operational breakdowns often happen during transitions, assumptions, ownership changes, timezone shifts, and undocumented workflows. Great operations reduce handoff ambiguity.",
+    tags: ["handoffs", "ownership", "workflow"],
+  },
+  {
+    category: "Incident Management",
+    type: "Signal discipline",
+    title: "Slow is smooth",
+    body: "Strong operators slow down first, understand the system, define the problem clearly, and then execute rapidly. Rushing creates repeated work.",
+    tags: ["calm", "triage", "execution"],
+  },
+  {
+    category: "Support Operations",
+    type: "Signal layer",
+    title: "Support sees the truth first",
+    body: "Frontline teams experience friction, pain, confusion, and scaling issues first. Support is not only execution; it is an early warning system.",
+    tags: ["support", "frontline", "signal"],
+  },
+  {
+    category: "Support Operations",
+    type: "Quality system",
+    title: "Frontline readiness protects scale",
+    body: "Quality at scale requires standard expectations, clear escalation paths, consistent documentation, coaching loops, and metrics that reveal drift.",
+    tags: ["readiness", "quality", "scale"],
+  },
+  {
+    category: "Support Operations",
+    type: "Service delivery",
+    title: "Support is service delivery",
+    body: "The work is not internal support as a task queue. It is service delivery for users, centered on friction points, experience quality, and feedback loops.",
+    tags: ["service-delivery", "users", "feedback"],
+  },
+  {
+    category: "Communication",
+    type: "Question",
+    title: "What is the actual ask?",
+    body: "A large percentage of operational confusion comes from unclear requests, implied expectations, and incomplete context. Naming the ask reduces churn.",
+    tags: ["clarity", "requests", "context"],
+  },
+  {
+    category: "Communication",
+    type: "Question",
+    title: "Help me understand",
+    body: "Questions reduce defensiveness, surface assumptions, and create collaboration. Listening first gives you leverage without escalating the room.",
+    tags: ["questions", "empathy", "conflict"],
+  },
+  {
+    category: "Communication",
+    type: "Tone",
+    title: "Calm communication lowers blast radius",
+    body: "Tone determines escalation trajectory. The wrong tone can create an operational incident; calm communication helps the room stay useful.",
+    tags: ["tone", "calm", "blast-radius"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Silence",
+    title: "Silence is operational data",
+    body: "When people stop escalating, contributing, questioning, or disagreeing, something is wrong. Silence is not always alignment.",
+    tags: ["silence", "trust", "signal"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Trust",
+    title: "Trust accelerates execution",
+    body: "Teams move faster when people feel safe, ownership is trusted, mistakes are survivable, and candor is rewarded. Low trust slows everything down.",
+    tags: ["trust", "execution", "candor"],
+  },
+  {
+    category: "Team Dynamics",
+    type: "Protection",
+    title: "High performers require protection",
+    body: "Reliable people become overloaded first. High performers often absorb ambiguity and compensate for weak systems before anyone notices the cost.",
+    tags: ["high-performers", "burnout", "protection"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Documentation",
+    title: "Documentation is memory at scale",
+    body: "Documentation is not bureaucracy. It is operational continuity, onboarding acceleration, risk reduction, and proof the system can survive absence.",
+    tags: ["documentation", "memory", "continuity"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Migration",
+    title: "Every migration has hidden dependencies",
+    body: "Large changes fail when organizations underestimate identity systems, workflow changes, tribal knowledge, downstream integrations, and communication timing.",
+    tags: ["migration", "dependencies", "risk"],
+  },
+  {
+    category: "Operational Scars",
+    type: "Debt",
+    title: "Operational debt compounds quietly",
+    body: "Small shortcuts become permanent workarounds, hidden dependencies, fragile systems, and support nightmares when no one pays them down.",
+    tags: ["operational-debt", "fragility", "support"],
+  },
+  {
+    category: "How-to-Level",
+    type: "Transition",
+    title: "No disruption is a strategy",
+    body: "A strong transition protects continuity through phased handoff, ownership mapping, documentation, risk visibility, and stakeholder alignment.",
+    tags: ["transition", "handoff", "continuity"],
+  },
+  {
+    category: "How-to-Level",
+    type: "First 90 days",
+    title: "Diagnose, align, stabilize",
+    body: "The first months are about understanding the operating model, mapping stakeholders, finding fragile handoffs, aligning success criteria, and stabilizing immediate risks.",
+    tags: ["90-days", "alignment", "stabilize"],
+  },
+  {
+    category: "How-to-Level",
+    type: "Stakeholder lens",
+    title: "Translate operational pain into signal",
+    body: "The goal is not to be the deepest engineer in the room. The goal is to connect user pain, repeat issues, metrics, and system design.",
+    tags: ["engineering", "translation", "signal"],
+  },
+  {
+    category: "Development Archive",
+    type: "Growth",
+    title: "Confidence is built through uncertainty",
+    body: "Imposter syndrome and operational confidence can coexist. The useful part is staying humble and curious without letting fear become the decision-maker.",
+    tags: ["confidence", "imposter", "growth"],
+  },
+  {
+    category: "Development Archive",
+    type: "Curiosity",
+    title: "Stagnation is operational decay",
+    body: "Curiosity creates opportunity because it keeps you adaptable, learning, and ready for adjacent domains before the environment forces change.",
+    tags: ["curiosity", "learning", "adaptability"],
+  },
+  {
+    category: "Development Archive",
+    type: "Failure",
+    title: "Pain creates pattern recognition",
+    body: "Difficult experiences become future intuition when reflected on honestly. Operators recognize failure modes because they have survived them before.",
+    tags: ["failure", "pattern-recognition", "wisdom"],
+  },
+  {
+    category: "Mouk Company",
+    type: "Culture",
+    title: "Strong culture survives pressure",
+    body: "Weak culture is exposed by pressure. Strong culture keeps communication clear, ownership visible, and people honest when the room gets tense.",
+    tags: ["culture", "pressure", "ownership"],
+  },
+  {
+    category: "Mouk Company",
+    type: "Operating value",
+    title: "Reliability over charisma",
+    body: "The Mouk Company values reliability over charisma, candor over politics, sustainability over heroics, and long-term trust over short-term wins.",
+    tags: ["values", "reliability", "trust"],
+  },
+  {
+    category: "Moukisms",
+    type: "Quote",
+    title: "The system should survive your absence",
+    body: "Operational maturity means shared ownership, repeatable process, clean documentation, and communication that does not depend on one person.",
+    tags: ["maturity", "systems", "ownership"],
+  },
+  {
+    category: "Moukisms",
+    type: "Quote",
+    title: "You can feel tension without creating tension",
+    body: "Operational leadership requires emotional control, calm communication, measured escalation, and clarity under pressure.",
+    tags: ["tension", "communication", "pressure"],
+  },
+  {
+    category: "Moukisms",
+    type: "Quote",
+    title: "Curiosity is a survival skill",
+    body: "Curious people adapt faster, learn continuously, avoid stagnation, and survive organizational change with more range.",
+    tags: ["curiosity", "adaptability", "growth"],
+  },
 ];
 
 const views = {
   vault: {
     label: "Knowledge Vault",
-    title: "The Mouk Company operating system for pressure, people, and scale.",
+    title: "The Operating System for Hard-Won Judgment.",
     summary:
       "Leadership doctrine, incident command, support intelligence, trust patterns, operational scars, personal context, development archive, and Moukisms shaped by systems thinking and people impact.",
     quote: "Build people. Build trust. Build systems that survive pressure.",
@@ -187,6 +404,14 @@ const views = {
       "Humor, existential operational chaos, leadership memes, and uncomfortable truths for people who have seen one too many dashboards at midnight.",
     quote: "The gift of shit is when pain becomes pattern recognition.",
     caption: "meme wisdom edition",
+  },
+  resume: {
+    label: "Resume",
+    title: "Builder of scalable internal technology organizations.",
+    summary:
+      "A Head of IT narrative tailored around outsourced-to-internal transition, global support, vendor governance, endpoint/access foundations, documentation, and hands-on leadership.",
+    quote: "I build structure while the business keeps moving.",
+    caption: "Future Secure AI positioning",
   },
 };
 
@@ -298,6 +523,14 @@ const brainDomains = [
 let activeCategory = "All";
 let activeTone = "direct";
 let wisdomIndex = 0;
+const MAX_VISIBLE_ENTRIES = 5;
+
+function shuffleEntries(items) {
+  return [...items]
+    .map((item) => ({ item, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ item }) => item);
+}
 
 const categoryFilters = document.querySelector("#category-filters");
 const entriesNode = document.querySelector("#entries");
@@ -358,9 +591,10 @@ function renderEntries() {
   });
 
   activeCategoryNode.textContent = activeCategory === "All" ? "All entries" : activeCategory;
-  visibleCount.textContent = `${filtered.length} shown`;
+  const visibleEntries = shuffleEntries(filtered).slice(0, MAX_VISIBLE_ENTRIES);
+  visibleCount.textContent = `${visibleEntries.length} shown`;
   entryTotal.textContent = entries.length;
-  entriesNode.innerHTML = filtered
+  entriesNode.innerHTML = visibleEntries
     .map(
       (entry, index) => `
         <article class="entry-card">
