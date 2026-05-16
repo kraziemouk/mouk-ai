@@ -740,15 +740,23 @@ async function askMouk(question) {
       body: JSON.stringify({ question }),
     });
 
-    const data = await response.json();
+    const contentType = response.headers.get("content-type") || "";
+    const data = contentType.includes("application/json")
+      ? await response.json()
+      : { error: await response.text() };
 
     if (!response.ok) {
-      throw new Error(data.error || "Ask Mouk API failed.");
+      const routeMissing = response.status === 404 || /page could not be found|not found/i.test(data.error || "");
+      throw new Error(
+        routeMissing
+          ? "The live Brain endpoint is not deployed yet. Make sure the api/ask.js file is in GitHub, then redeploy Vercel."
+          : data.error || "Ask Mouk API failed."
+      );
     }
 
     pending.querySelector("p").innerHTML = formatMessage(data.answer || answerLikeMouk(question));
   } catch (error) {
-    const fallback = `${answerLikeMouk(question)}\n\nLocal fallback note: the real AI endpoint is not available yet. On Vercel, add OPENAI_API_KEY and redeploy.\n\nError detail: ${error.message}`;
+    const fallback = `${answerLikeMouk(question)}\n\nLive Brain note: I am answering from the local archive right now because the OpenAI-backed endpoint is not reachable yet.\n\nWhat to check: open /api/ask on your Vercel site. If it says not found, Vercel has not deployed the API folder yet. If it shows JSON, the Brain endpoint exists and we can look at the function logs next.\n\nDetail: ${error.message}`;
     pending.querySelector("p").innerHTML = formatMessage(fallback);
   }
 }
